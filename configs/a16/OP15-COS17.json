@@ -24,7 +24,7 @@
   "susfs_hash": "c6788e2a21dc717beb7dd3a36b729b58bc909927",
   "opt": true,
   "ds": false,
-  "bbg": true,
+  "bbg": false,
   "bbr": true,
   "bbr3": true,
   "ttl": true,
