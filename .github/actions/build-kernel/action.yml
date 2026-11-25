@@ -2184,15 +2184,7 @@ runs:
             patch -p1 --forward < "$KERNEL_PATCHES_FOLDER/common/unicode_bypass_fix_6.1-.patch"
         else
             patch -p1 --forward < "$KERNEL_PATCHES_FOLDER/common/unicode_bypass_fix_6.1+.patch"
-        fi    - name: Apply NoMount Support
-      shell: bash
-      if: ${{ env.OP_NOMOUNT == 'true' }}
-      run: |
-        set -euo pipefail
-        echo "::group::Apply NoMount Support"
-        
-        cd "$COMMON_KERNEL_FOLDER"
-        curl https://raw.githubusercontent.com/maxsteeel/nomount/refs/heads/dev/kernel/setup.sh | bash -s dev
+        fi
 
     - name: Apply NoMount Support
       shell: bash
