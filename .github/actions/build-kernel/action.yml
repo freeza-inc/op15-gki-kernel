@@ -1366,6 +1366,7 @@ runs:
         echo "KSU_COMMIT_SHA=$KSU_COMMIT_SHA" >> "$GITHUB_ENV"
 
         echo "Add KernelSU-Next Configuration Settings"
+        cp "$COMMON_KERNEL_FOLDER/arch/arm64/configs/gki_defconfig" "$COMMON_KERNEL_FOLDER/arch/arm64/configs/gki2_defconfig"
         cat >> "$COMMON_KERNEL_FOLDER/arch/arm64/configs/gki_defconfig" <<EOF
         CONFIG_KSU=y
         CONFIG_KSU_KPROBES_HOOK=n
