@@ -3535,15 +3535,15 @@ runs:
         VARIANT_SUFFIX="_${KSU_VARIANT_TAG:-SukiSU}"
         if [ "${KSUMODE:-lkm}" = "lkm" ]; then
           if [ "${{ env.OP_SUSFS }}" = true ]; then
-            ZIP_NAME="${ZIP_MODEL}_${KERNEL_FULL_VER}-SuSFS_${SUSVER:-unknown}${ZIP_REV}${VARIANT_SUFFIX}_LKM.zip"
+            ZIP_NAME="${ZIP_MODEL}_${KERNEL_FULL_VER}-SuSFS_${SUSVER:-unknown}${ZIP_REV}${VARIANT_SUFFIX}_${KSUVER:-unknown}_LKM.zip"
           else
-            ZIP_NAME="${ZIP_MODEL}_${KERNEL_FULL_VER}${ZIP_REV}${VARIANT_SUFFIX}_LKM.zip"
+            ZIP_NAME="${ZIP_MODEL}_${KERNEL_FULL_VER}${ZIP_REV}${VARIANT_SUFFIX}_${KSUVER:-unknown}_LKM.zip"
           fi
         else
           if [ "${{ env.OP_SUSFS }}" = true ]; then
-            ZIP_NAME="${ZIP_MODEL}_${KERNEL_FULL_VER}-SuSFS_${SUSVER:-unknown}${ZIP_REV}${VARIANT_SUFFIX}.zip"
+            ZIP_NAME="${ZIP_MODEL}_${KERNEL_FULL_VER}-SuSFS_${SUSVER:-unknown}${ZIP_REV}${VARIANT_SUFFIX}_${KSUVER:-unknown}.zip"
           else
-            ZIP_NAME="${ZIP_MODEL}_${KERNEL_FULL_VER}${ZIP_REV}${VARIANT_SUFFIX}.zip"
+            ZIP_NAME="${ZIP_MODEL}_${KERNEL_FULL_VER}${ZIP_REV}${VARIANT_SUFFIX}_${KSUVER:-unknown}.zip"
           fi
         fi
         echo "FEATURE_TAG=$FEATURE_TAG" >> "$GITHUB_ENV"
