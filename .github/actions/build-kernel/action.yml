@@ -1731,7 +1731,9 @@ runs:
 
         # Only now is it safe to clear any stragglers.
         find "$KERNEL_PLATFORM_FOLDER" -name "*.rej" -delete 2>/dev/null || true
-        
+
+        patch -p1 --forward < "$KERNEL_PATCHES_FOLDER/common/hide_adb_jdwp_sockets.patch"
+
         echo " SUSFS patches applied"
         
         echo "Add SUSFS Configuration Settings"
@@ -1751,6 +1753,7 @@ runs:
           echo "CONFIG_KSU_SUSFS_HIDE_KSU_SUSFS_SYMBOLS=y" >> "$config"
           echo "CONFIG_KSU_SUSFS_SPOOF_CMDLINE_OR_BOOTCONFIG=y" >> "$config"
           echo "CONFIG_KSU_SUSFS_OPEN_REDIRECT=y" >> "$config"
+          echo "CONFIG_KSU_SUSFS_PRIORITY_UID_FILTER=y" >> "$config"
           echo "CONFIG_KSU_SUSFS_SUS_MAP=y" >> "$config"
           echo "CONFIG_KSU_SUSFS_SUS_SU=n" >> "$config"
         done
@@ -2930,6 +2933,7 @@ runs:
             -e KSU_SUSFS_HIDE_KSU_SUSFS_SYMBOLS \
             -e KSU_SUSFS_SPOOF_CMDLINE_OR_BOOTCONFIG \
             -e KSU_SUSFS_OPEN_REDIRECT \
+            -e KSU_SUSFS_PRIORITY_UID_FILTER=y \
             -e KSU_SUSFS_SUS_MAP \
             -d KSU_SUSFS_SUS_SU
         fi
