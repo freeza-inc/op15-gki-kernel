@@ -2951,7 +2951,7 @@ runs:
             -e KSU_SUSFS_HIDE_KSU_SUSFS_SYMBOLS \
             -e KSU_SUSFS_SPOOF_CMDLINE_OR_BOOTCONFIG \
             -e KSU_SUSFS_OPEN_REDIRECT \
-            -e KSU_SUSFS_PRIORITY_UID_FILTER=y \
+            -e KSU_SUSFS_PRIORITY_UID_FILTER \
             -e KSU_SUSFS_SUS_MAP \
             -d KSU_SUSFS_SUS_SU
         fi
