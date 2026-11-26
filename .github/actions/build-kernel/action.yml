@@ -2030,7 +2030,7 @@ runs:
           fi
         done
 
-        ccache --set-config=extra_files_to_hash="$copied_modules"
+        echo "CCACHE_EXTRAFILES=$copied_modules" >> "$GITHUB_ENV"
 
         # Fix undefined get_PCB_Version symbol in wl2868c-regulator module (OP-N6 / mt6835)
         while IFS= read -r -d '' reg_file; do
